@@ -1,0 +1,69 @@
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
+
+apply from: "$rootDir/scripts/dependencies.gradle"
+
+android {
+    compileSdkVersion sdkCompileVersion
+    buildToolsVersion buildToolsAllVersion
+
+    defaultConfig {
+        applicationId "kz.home.weatherforecast"
+        versionCode 1
+        versionName "1.0"
+        minSdkVersion sdkMinVersion
+        targetSdkVersion sdkTargetVersion
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+    
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = JavaVersion.VERSION_11
+    }
+    androidExtensions {
+        experimental = true
+    }
+    dexOptions {
+        javaMaxHeapSize "6g"
+    }
+}
+
+dependencies {
+    implementation project(':common')
+    implementation project(':viewmodels')
+
+    implementation androidXDependencies.coreKtx
+    implementation androidXDependencies.appcompat
+    implementation androidXDependencies.materialDesign
+    implementation androidXDependencies.viewModelKtx
+    implementation androidXDependencies.navigationFragmentKtx
+    implementation androidXDependencies.navigationUiKtx
+    implementation androidXDependencies.pagingKtx
+    implementation androidXDependencies.constraintLayout
+    implementation androidXDependencies.livedataKtx
+    implementation androidXDependencies.preferenceKtx
+
+    implementation coroutinesDependencies.coroutines
+    implementation coroutinesDependencies.coroutinesAndroid
+    implementation coroutinesDependencies.coroutinesPlayServices
+
+    //implementation koinDependencies.core
+    implementation koinDependencies.scope
+    implementation koinDependencies.viewModel
+
+    implementation otherDependencies.gson
+    implementation otherDependencies.timber
+    implementation otherDependencies.glide
+    implementation otherDependencies.glideOkhttp
+    implementation otherDependencies.okHttp
+    implementation otherDependencies.okHttpLogging
+    kapt otherDependencies.glideCompiler
+
+    implementation androidXDependencies.roomKtx
+    kapt androidXDependencies.roomCompiler
+}

@@ -1,0 +1,41 @@
+apply from: "$project.rootDir/scripts/common-library.gradle"
+
+dependencies {
+    implementation project(':common')
+
+    implementation androidXDependencies.coreKtx
+    implementation androidXDependencies.appcompat
+    implementation androidXDependencies.materialDesign
+    implementation androidXDependencies.viewModelKtx
+    implementation androidXDependencies.navigationFragmentKtx
+    implementation androidXDependencies.navigationUiKtx
+    implementation androidXDependencies.pagingKtx
+    implementation androidXDependencies.constraintLayout
+    implementation androidXDependencies.livedataKtx
+    implementation androidXDependencies.preferenceKtx
+
+    implementation coroutinesDependencies.coroutines
+    implementation coroutinesDependencies.coroutinesAndroid
+    implementation coroutinesDependencies.coroutinesPlayServices
+
+    implementation otherDependencies.gson
+    implementation otherDependencies.timber
+    implementation otherDependencies.glide
+    implementation otherDependencies.glideOkhttp
+    implementation otherDependencies.okHttp
+    implementation otherDependencies.okHttpLogging
+    kapt otherDependencies.glideCompiler
+
+    //implementation koinDependencies.core
+    implementation koinDependencies.scope
+    implementation koinDependencies.viewModel
+
+    implementation androidXDependencies.roomKtx
+    kapt androidXDependencies.roomCompiler
+
+    implementation retrofitDependencies.core
+    implementation retrofitDependencies.gson
+    implementation retrofitDependencies.scalars
+    implementation retrofitDependencies.corutines
+    implementation retrofitDependencies.logging
+}
